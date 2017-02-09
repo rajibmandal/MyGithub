@@ -4,15 +4,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace skeletonRESTApp.Controllers
 {
+    public class Data
+    {
+        public string Name { get; set; }
+    }
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public Data Get()
         {
-            return new string[] { "value1", "value2" };
+            Data d = new Data();
+            d.Name= "Kailun";
+            return  d;
+            
+           // return new { data = false };
         }
 
         // GET api/values/5
