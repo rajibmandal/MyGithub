@@ -1,0 +1,5 @@
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\DataBaseMgr\bin\Debug\DataBaseMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\DataBaseMgr\bin\Debug\DataBaseMgr.pdb
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\DataBaseMgr\obj\Debug\DataBaseMgr.csprojResolveAssemblyReference.cache
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\DataBaseMgr\obj\Debug\DataBaseMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\DataBaseMgr\obj\Debug\DataBaseMgr.pdb

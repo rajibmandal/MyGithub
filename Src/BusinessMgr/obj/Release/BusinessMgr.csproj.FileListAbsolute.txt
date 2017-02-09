@@ -1,0 +1,7 @@
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\bin\Release\BusinessMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\bin\Release\BusinessMgr.pdb
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\obj\Release\BusinessMgr.csprojResolveAssemblyReference.cache
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\obj\Release\BusinessMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\obj\Release\BusinessMgr.pdb
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\bin\Release\DataBaseMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\bin\Release\DataBaseMgr.pdb

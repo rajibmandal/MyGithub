@@ -1,0 +1,5 @@
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\bin\Debug\BusinessMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\bin\Debug\BusinessMgr.pdb
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\obj\Debug\BusinessMgr.csprojResolveAssemblyReference.cache
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\obj\Debug\BusinessMgr.dll
+D:\Personal\BrainNLogic\SoftWare\skeletonRESTApp\BusinessMgr\obj\Debug\BusinessMgr.pdb
