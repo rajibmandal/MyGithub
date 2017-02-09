@@ -9,7 +9,6 @@ using System.Runtime.Serialization;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Xml.Serialization;
-using Newtonsoft.Json;
 
 namespace skeletonRESTApp.Areas.HelpPage.ModelDescriptions
 {
@@ -204,49 +203,13 @@ namespace skeletonRESTApp.Areas.HelpPage.ModelDescriptions
         // Change this to provide different name for the member.
         private static string GetMemberName(MemberInfo member, bool hasDataContractAttribute)
         {
-            JsonPropertyAttribute jsonProperty = member.GetCustomAttribute<JsonPropertyAttribute>();
-            if (jsonProperty != null && !String.IsNullOrEmpty(jsonProperty.PropertyName))
-            {
-                return jsonProperty.PropertyName;
-            }
 
-            if (hasDataContractAttribute)
-            {
-                DataMemberAttribute dataMember = member.GetCustomAttribute<DataMemberAttribute>();
-                if (dataMember != null && !String.IsNullOrEmpty(dataMember.Name))
-                {
-                    return dataMember.Name;
-                }
-            }
-
-            return member.Name;
+            return @"";
         }
 
         private static bool ShouldDisplayMember(MemberInfo member, bool hasDataContractAttribute)
         {
-            JsonIgnoreAttribute jsonIgnore = member.GetCustomAttribute<JsonIgnoreAttribute>();
-            XmlIgnoreAttribute xmlIgnore = member.GetCustomAttribute<XmlIgnoreAttribute>();
-            IgnoreDataMemberAttribute ignoreDataMember = member.GetCustomAttribute<IgnoreDataMemberAttribute>();
-            NonSerializedAttribute nonSerialized = member.GetCustomAttribute<NonSerializedAttribute>();
-            ApiExplorerSettingsAttribute apiExplorerSetting = member.GetCustomAttribute<ApiExplorerSettingsAttribute>();
-
-            bool hasMemberAttribute = member.DeclaringType.IsEnum ?
-                member.GetCustomAttribute<EnumMemberAttribute>() != null :
-                member.GetCustomAttribute<DataMemberAttribute>() != null;
-
-            // Display member only if all the followings are true:
-            // no JsonIgnoreAttribute
-            // no XmlIgnoreAttribute
-            // no IgnoreDataMemberAttribute
-            // no NonSerializedAttribute
-            // no ApiExplorerSettingsAttribute with IgnoreApi set to true
-            // no DataContractAttribute without DataMemberAttribute or EnumMemberAttribute
-            return jsonIgnore == null &&
-                xmlIgnore == null &&
-                ignoreDataMember == null &&
-                nonSerialized == null &&
-                (apiExplorerSetting == null || !apiExplorerSetting.IgnoreApi) &&
-                (!hasDataContractAttribute || hasMemberAttribute);
+            return false;
         }
 
         private string CreateDefaultDocumentation(Type type)
