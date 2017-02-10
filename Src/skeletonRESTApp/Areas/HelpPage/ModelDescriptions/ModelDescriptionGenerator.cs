@@ -203,13 +203,42 @@ namespace skeletonRESTApp.Areas.HelpPage.ModelDescriptions
         // Change this to provide different name for the member.
         private static string GetMemberName(MemberInfo member, bool hasDataContractAttribute)
         {
+            if (hasDataContractAttribute)
+            {
+                DataMemberAttribute dataMember = member.GetCustomAttribute<DataMemberAttribute>();
+                if (dataMember != null && !String.IsNullOrEmpty(dataMember.Name))
+                {
+                    return dataMember.Name;
+                }
+            }
 
-            return @"";
+            return member.Name;
         }
 
         private static bool ShouldDisplayMember(MemberInfo member, bool hasDataContractAttribute)
         {
-            return false;
+             XmlIgnoreAttribute xmlIgnore = member.GetCustomAttribute<XmlIgnoreAttribute>();
+            IgnoreDataMemberAttribute ignoreDataMember = member.GetCustomAttribute<IgnoreDataMemberAttribute>();
+            NonSerializedAttribute nonSerialized = member.GetCustomAttribute<NonSerializedAttribute>();
+            ApiExplorerSettingsAttribute apiExplorerSetting = member.GetCustomAttribute<ApiExplorerSettingsAttribute>();
+
+            bool hasMemberAttribute = member.DeclaringType.IsEnum ?
+                member.GetCustomAttribute<EnumMemberAttribute>() != null :
+                member.GetCustomAttribute<DataMemberAttribute>() != null;
+
+            // Display member only if all the followings are true:
+            // no JsonIgnoreAttribute
+            // no XmlIgnoreAttribute
+            // no IgnoreDataMemberAttribute
+            // no NonSerializedAttribute
+            // no ApiExplorerSettingsAttribute with IgnoreApi set to true
+            // no DataContractAttribute without DataMemberAttribute or EnumMemberAttribute
+            return 
+                xmlIgnore == null &&
+                ignoreDataMember == null &&
+                nonSerialized == null &&
+                (apiExplorerSetting == null || !apiExplorerSetting.IgnoreApi) &&
+                (!hasDataContractAttribute || hasMemberAttribute);
         }
 
         private string CreateDefaultDocumentation(Type type)
